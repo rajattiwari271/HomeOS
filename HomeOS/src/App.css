@@ -1,0 +1,128 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #f5f7fb;
+}
+
+.app {
+  display: flex;
+  min-height: 100vh;
+}
+aside {
+  width: 240px;
+  min-height: 100vh;
+  flex-shrink: 0;
+  background-color: white;
+  padding: 24px;
+  border-right: 1px solid #e5e7eb;
+}
+aside h2 {
+  font-size: 24px;
+  color: #1d2939;
+  margin-bottom: 10px;
+}
+
+main {
+  padding: 30px;
+}
+aside p {
+  font-size: 14px;
+  color: #667085;
+  margin: 10px 0;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+main h1 {
+  color: #1d2939;
+    margin-bottom: 12px;
+}
+main p {
+  color: #667085;
+  font-size: 15px;
+}
+
+.summary-card {
+  background-color: white;
+  padding: 24px;
+  border-radius: 12px;
+  border: 1px solid #e5e7eb;
+}
+
+.card-value {
+  font-size: 32px;
+  font-weight: bold;
+  color: #1d2939;
+  margin: 12px 0 0;
+}
+.card-description {
+  font-size: 13px;
+  color: #667085;
+  margin: 8px 0 0;
+}
+
+.summary-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  min-height: 150px;
+}
+.summary-card h3 {
+  margin: 0;
+  font-size: 15px;
+  color: #667085;
+  min-height: 150px;
+  box-shadow: 0 2px 6px rgba(16, 24, 40, 0.04);
+  transition: transform 0.2 ease, box-shadow 0.2s ease;
+}
+
+@media (max-width: 900px) {
+  .summary-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.summary-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 14px rgba(16, 24, 40, 0.08);
+}
+
+.activity-item {
+  background-color: white;
+  padding: 20px;
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+  margin-top: 12px;
+}
+.activity-item h3 {
+  margin: 0;
+  font-size: 15px;
+  color: #1d2939;
+}
+
+.activity-date {
+  margin: 8px 0 0;
+  font-size: 13px;
+  color: #667085;
+}
+.activity-list {
+  margin-top: 16px;
+}
+main > h2 {
+  margin-top: 32px;
+  margin-bottom: 0;
+  font-size: 20px;
+  color: #1d2939;
+}
+
+.nav-active {
+  background-color: #eef2ff;
+  color: #4f46e5;
+  padding: 12px;
+  border-radius: 8px;
+  font-weight: 600;
+}
+
+aside p:hover {
+  background-color: #f2f4f7;
+}
