@@ -6,7 +6,7 @@ function App() {
 
   const [applianceName,setApplianceName] = useState('')
   const [appliance,setAppliance] = useState([])
-const [selectedCategory ,setSelectedCategory] = useState('')
+const [selectedCategory ,setSelectedCategory] = useState('Cooling')
 
 
 
@@ -14,7 +14,11 @@ function addAppliance(){
   if(applianceName.trim()===''){
     return 
   }
-  setAppliance([...appliance,applianceName.trim()])
+  setAppliance([...appliance,
+    {
+      name : applianceName.trim(),
+    category : selectedCategory}
+  ])
   setApplianceName('')
 }
 
@@ -80,7 +84,9 @@ function deleteAppliance(index) {
             <p>No appliances added yet.</p>
           ):(
           appliance.map((item,index)=>(
-            <div key={index} className='appliance-item'>{item}
+            <div key={index} className='appliance-item'>
+              <h3>{item.name}</h3>
+              <p>{item.category}</p>
             <button onClick={()=>deleteAppliance(index)}>Delete</button></div>
           )
           ))}
