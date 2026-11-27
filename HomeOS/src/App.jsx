@@ -3,19 +3,27 @@ import { useState } from 'react'
 import './App.css'
 
 function App() {
-  const [count, setCount] = useState(0)
+
   const [applianceName,setApplianceName] = useState('')
   const [appliance,setAppliance] = useState([])
+const [selectedCategory ,setSelectedCategory] = useState('')
+
+
 
 function addAppliance(){
-  if(applianceName.trim()==''){
+  if(applianceName.trim()===''){
     return 
   }
-  setAppliance([...appliance,applianceName])
+  setAppliance([...appliance,applianceName.trim()])
   setApplianceName('')
 }
 
-
+function deleteAppliance(index) {
+  const updatedAppliance = appliance.filter((item,i)=>{
+    return i !== index 
+  })
+  setAppliance(updatedAppliance)
+}
   return (
     <>
     <div className='app'><aside>
@@ -33,6 +41,13 @@ function addAppliance(){
         <input placeholder="Enter appliance name"
         value = {applianceName} 
          onChange={(e)=>setApplianceName(e.target.value)}/>
+         <select value = {selectedCategory}
+         onChange = {(e) =>setSelectedCategory(e.target.value)}>
+          <option value="Cooling">Cooling</option>
+          <option value="Kitchen">Kitchen</option>
+          <option value="Cleaning">Cleaning</option>
+          <option value="Electronic">Electronics</option>
+         </select>
         <button onClick={addAppliance }>Add Appliance</button>
         <div className='summary-grid'>
         <div className='summary-card'>
@@ -57,6 +72,22 @@ function addAppliance(){
 
           </div>
         </div>
+
+
+        <h2>My Appliances</h2>
+        <div className='appliance-list'>
+          {appliance.length===0 ? (
+            <p>No appliances added yet.</p>
+          ):(
+          appliance.map((item,index)=>(
+            <div key={index} className='appliance-item'>{item}
+            <button onClick={()=>deleteAppliance(index)}>Delete</button></div>
+          )
+          ))}
+          
+        </div>
+
+
         <h2>Recent Activity</h2>
         <div className='activity-list'>
           <div className='activity-item'>
